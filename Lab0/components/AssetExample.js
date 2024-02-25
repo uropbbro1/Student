@@ -1,5 +1,15 @@
-import { Text, View, StyleSheet, Button, Alert, } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 
+export default function AssetExample() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.paragraph}>
+        Local files and assets can be imported by dragging and dropping them into the editor
+      </Text>
+      <Image style={styles.logo} source={require('../assets/snack-icon.png')} />
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -7,29 +17,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 24,
   },
-  hello_text: {
-    fontSize: 24,
+  paragraph: {
+    margin: 24,
+    marginTop: 0,
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  logo: {
+    height: 128,
+    width: 128,
   }
 });
-
-const show_alert = (text) => {
-    Alert.alert(text)
-}
-
-const MyApp = () =>{
-    return (
-    <View style={styles.container}>
-      <Text style={styles.hello_text}>
-       Hello, World!
-      </Text>
-      <Button
-        title="Hello, World?"
-        onPress={() => show_alert('Hello, my friend!')}
-      />
-    </View>
-  );
-}
-
-export default MyApp
-
-
