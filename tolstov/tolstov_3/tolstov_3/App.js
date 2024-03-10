@@ -105,7 +105,7 @@ function DefaultDeals() {
         
         db.transaction(
         tx => {
-          tx.executeSql(`INSERT OR REPLACE into items (id, done, value) values (${item['id']}, ${item['done']}, ${item['value']})`,
+          tx.executeSql(`INSERT OR REPLACE into items (id, done, value) values (${item['id']}, ${item['done']}, '${item['value']}')`,
           (complete) => console.log(`complete - ${complete}`),
           (err) => console.log(`err - ${err._array}`));
         },
